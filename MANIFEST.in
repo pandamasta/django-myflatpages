@@ -1,0 +1,7 @@
+include LICENSE
+include README.rst
+recursive-include myflatpages/templates *
+recursive-include myflatpages/templatetags *
+recursive-include myflatpages/locale *
+recursive-include myflatpages/static *
+recursive-include myflatpages/fixtures *
