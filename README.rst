@@ -1,33 +1,38 @@
 =====
 django-myflatpages
 =====
+  [ !! APP IS NOT FINISHED TO BE USED AS EXPECTED !! ]
+     [ !! README WILL BE UPDATED WHEN ALL WILL BE READY !! ]
 
-django-myflatpages is a simple Django app that add an order field to each flatpage created. 
-
-Detailed documentation is in the "docs" directory.
+django-myflatpages is simply a fork of the original flatpages app with an extra order field, that allow you to order pages in a menu 
 
 Quick start
 -----------
-You need to install django_summernote to get a fancy textarea wyswyg
+You need to install django-summernote to get a fancy textarea wyswyg
 
-	pip install django_summernote
+	pip install django-summernote
 
-1. Add "myflatpages" + sites to your INSTALLED_APPS setting like this::
+1. Add "myflatpages", "sites", and summernote module to your INSTALLED_APPS setting like this:
 
       INSTALLED_APPS = (
-          ...
 	#Flatpages stuff
 	'myflatpages',
 	'django.contrib.sites',
-      	#Summernote
+    #Summernote
 	'django_summernote',
 
       )
 
+2. Add the flatpage middleware to settings.py
+    MIDDLEWARE_CLASSES = (
+        'myflatpages.middleware.FlatpageFallbackMiddleware',
+    )
 
-2. Run `python manage.py syncdb` to create the gallery models.
+3. Add site ID to settings.py
+    # Site ID related to site framwork 
+    SITE_ID = 1
 
-3. Start the development server and visit http://127.0.0.1:8000/admin/
+4. Run `python manage.py syncdb` to create the gallery models.
+
+5. Start the development server and visit http://127.0.0.1:8000/admin/
    to add a flatpages with orderfield. You'll need the Admin app enabled.
-
-
